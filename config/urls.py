@@ -19,8 +19,11 @@ from django.urls import path, include
 
 from config import settings
 
+api_v1_prefix = settings.API["v1"]["prefix"]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(api_v1_prefix, include("apps.contacts.urls")),
 ]
 
 if not settings.TESTING:

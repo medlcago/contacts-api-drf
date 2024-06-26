@@ -3,7 +3,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.contacts.utils import validate_phone_number
+from common.validators import validate_phone_number
 
 User = get_user_model()
 
@@ -21,3 +21,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.user} | Контакт {self.name}"
+
+    class Meta:
+        ordering = ("id",)
