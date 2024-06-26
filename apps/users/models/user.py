@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 
 
 class UserManager(BaseUserManager):
@@ -81,3 +82,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+    @property
+    def access_token(self):
+        return str(AccessToken.for_user(self))
+
+    @property
+    def refresh_token(self):
+        return str(RefreshToken.for_user(self))

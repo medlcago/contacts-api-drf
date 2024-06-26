@@ -24,6 +24,7 @@ api_v1_prefix = settings.API["v1"]["prefix"]
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(api_v1_prefix, include("apps.contacts.urls")),
+    path(api_v1_prefix, include("apps.authentication.urls")),
 ]
 
 if not settings.TESTING:
