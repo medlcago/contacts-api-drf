@@ -33,7 +33,8 @@ class UserAdmin(UserAdmin):
             },
         ),
     )
-    list_display = ("email", "is_staff", "is_superuser", "is_active", "last_login", "date_joined")
+    list_display = ("id", "email", "is_staff", "is_superuser", "is_active", "last_login", "date_joined")
     readonly_fields = ("last_login", "date_joined")
+    list_display_links = ("id", "email")
     search_fields = ("email",)
     ordering = ("id",)

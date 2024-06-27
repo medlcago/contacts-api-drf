@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(api_v1_prefix, include("apps.contacts.urls")),
     path(api_v1_prefix, include("apps.authentication.urls")),
+    path(api_v1_prefix, include("apps.users.urls")),
 ]
 
 if not settings.TESTING:
